@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const API_KEY = "899590b4a5ee45ea8826cc0c10fef5f6";
+    const API_KEY = "";
     const BASE_URL = "https://api.spoonacular.com/";
 
     const daily_tag = document.getElementById("daily_tag");
