@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block body_class %}onboarding{% endblock %}
+
+{% block content %}
+
+<div class="login-section">
+    <!-- <div class="login-header">
+        <h1>Sign in to MyRecipes</h1>
+        <p class="text-center">Search recipes, get recommended meal plans personalized to you, and
+            spend more time with family and friends. Sign in to see your plans!
+        </p>
+    </div> -->
+    {% if not g.user %}
+    <div class="login-page">
+        <div class="login-heading">
+            <h1>Sign in to MyRecipes</h1>
+            <p class="text-center">Search recipes, get recommended meal plans personalized to you, and
+                spend more time with family and friends. Sign in to see your plans!
+            </p>
+        </div>
+
+        <form method="POST">
+
+            {{form.hidden_tag()}}
+
+            {% for field in form.errors %}
+            <div class="alert alert-danger">{{ field }}:
+                <ul>
+                    {% for error in form.errors[field] %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+
+            {% for field in form if field.widget.input_type != 'hidden' %}
+            <div class="login-form row">
+                <div class="col-sm-10">
+                    {{field(placeholder=field.label.text, class="input-field form-control")}}
+                </div>
+            </div>
+            {% endfor %}
+            <div class="login-btn">
+                <button class="btn btn-primary card-button">Login</button>
+            </div>
+        </form>
+    </div>
+    {% else %}
+    <div>
+        <h1>Hi, {{ g.user.username }}!</h1>
+        <a href="/logout">Log out</a>
+    </div>
+    {% endif %}
+</div>
+
+
+<!-- <body class="login-page">
+    <section class="base-background">
+        <div class="login-form">
+            
+        </div>
+    </section>
+</body> -->
+
+
+
+{% endblock %}

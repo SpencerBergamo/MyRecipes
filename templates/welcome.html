@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- py-5 text-center -->
+<div class="weclome-body">
+
+    {% if not g.user %}
+    <div class="flex-container">
+        <div class="landing-page">
+            <h1>
+                Need Help Planning For The Week? We've Got You Covered! Let's Get Started Together.
+            </h1>
+            <button type="button" id="get-started" href="#">
+                Get Started
+            </button>
+        </div>
+        <div class="welcome-row">
+            <h1>
+                10+ Cuisines To Chose From!
+            </h1>
+        </div>
+        <div class="welcome-row cuisines">
+            <div class="showcase-1">
+                <img src="static/images/african.png">
+            </div>
+            <div class="showcase-1">
+                <img src="static/images/italian.png">
+            </div>
+            <div class="showcase-1">
+                <img src="static/images/breakfast.png">
+            </div>
+        </div>
+        <div class="showcase-2-row">
+            <div class="showcase-2">
+                <h3>Make the Most Out of Every Week!</h3>
+                <p>Easy meal planning for every week so that you can spend time on what matters most.</p>
+            </div>
+            <div class="showcase-2">
+                <img src="static/images/family.png">
+            </div>
+        </div>
+        <div class="showcase-3-row">
+            <div class="showcase-3">
+                <img src="static/images/sunrise.png">
+            </div>
+            <div class="showcase-3">
+                <h3>
+                    Personalize EVERY Meal From Sunrise to Sunset!
+                </h3>
+                <p>We believe that everyone deserves to enjoy delicious and nutritious meals,
+                    no matter their dietary restrictions or preferences. That's why we offer
+                    a wide variety of recipes that can be customized to fit your individual
+                    needs.<br>
+                    Whether you're looking for a quick and easy breakfast, a hearty lunch,
+                    or a flavorful dinner, we have something for you. And with our personalized
+                    meal planning service, you can create a plan that fits your lifestyle and budget.
+                    <br>
+                    So what are you waiting for? <a href="/signup">Start personalizing</a> your meals today!
+                </p>
+            </div>
+        </div>
+        <div class="contact-row">
+            <!-- <div class="showcase-4">
+                IMG CARD
+            </div>
+            <div class="showcase-4">
+                <div>
+                    <h3>are you ready to get started?</h3>
+                    <button>Lets get started</button>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+
+
+    {% endif %}
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const startButton = document.getElementById("get-started");
+
+        startButton.addEventListener("click", function () {
+            // event.preventDefault();
+            console.log("get started button clicked")
+            window.location.href = "/signup";
+        });
+    });
+</script>
+
+{% endblock %}
